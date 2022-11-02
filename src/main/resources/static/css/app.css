@@ -1,0 +1,151 @@
+@charset "ISO-8859-1";
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
+
+:root {
+	--marker-w: 16px;
+}
+
+*:not(.bi) {
+	font-family: 'Hammersmith One', sans-serif;
+}
+
+#map {
+	position: fixed !important;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.center-pin {
+	transform: translate(-50%, -100%);
+}
+
+.center-pin, .center-pin-shadow {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	pointer-events: none;
+	transition: all 140ms ease-in;
+}
+
+#add-place *, #place-details {
+	z-index: 1001;
+}
+
+#add-place .card {
+	font-size: 90% !important;
+}
+
+.center-pin-shadow {
+	background-color: rgba(0, 0, 0, 0.3);
+	width: 14px;
+	height: 5px;
+	border-radius: 50%;
+	transform: translate(-50%, -70%);
+}
+
+.center-pin.moving {
+	transform: translate(-50%, calc(-7px - 100%));
+}
+
+.custom-marker {
+	background-color: white;
+	border-radius: 6px;
+	font-size: 14px;
+	padding: 10px 14px;
+	position: relative;
+	cursor: pointer;
+}
+
+.custom-marker, .custom-marker::after {
+	transition: all 150ms;
+}
+
+.custom-marker.selected {
+	background-color: var(--bs-gray-900);
+	color: white;
+}
+
+.custom-marker.selected::after {
+	border-top-color: var(--bs-gray-900);
+}
+
+.custom-marker.selected:hover {
+	background-color: var(--bs-gray-800);
+	color: white;
+}
+
+.custom-marker.selected:hover::after {
+	border-top-color: var(--bs-gray-800);
+}
+
+.custom-marker:hover {
+	background-color: rgb(231, 230, 232);
+}
+
+.custom-marker:hover::after {
+	border-top-color: rgb(231, 230, 232);
+}
+
+.custom-marker::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	top: 100%;
+	transform: translate(-50%, 0);
+	width: 0;
+	height: 0;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-top: 8px solid white;
+}
+
+.custom-marker-container {
+	transform: translate(-50%, calc(-100% - 8px));
+}
+
+#place-details {
+	width: 380px;
+	background-color: white;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	overflow-Y: auto;
+	transition: all 200ms;
+	border-right: 1px solid var(--bs-gray-500);
+}
+
+#place-details.hidden {
+	opacity: 0;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #aaa; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #666; 
+}
+
+#add-image {
+	width: 100%;
+	max-width: 400px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.app-modal {
+	z-index: 1003;
+}
